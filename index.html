@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yu-Zhu Sun · PhD Homepage</title>
+  <meta name="description" content="Academic style personal homepage: research, publications, education, talks, and contact." />
+  <meta name="color-scheme" content="light dark">
+  <style>
+    :root {
+      --bg: 0 0% 98%;
+      --text: 220 15% 15%;
+      --muted: 220 10% 40%;
+      --link: 210 70% 32%;
+      --border: 220 15% 85%;
+      --surface: 0 0% 100%;
+      --accent: 210 70% 32%; /* darker academic blue */
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .theme-dark {
+      --bg: 220 15% 14%;
+      --text: 0 0% 96%;
+      --muted: 220 10% 70%;
+      --link: 210 70% 55%;
+      --border: 220 10% 28%;
+      --surface: 220 15% 18%;
+      --accent: 210 70% 55%;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.65;
+      color: hsl(var(--text));
+      background: hsl(var(--bg));
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { width: min(980px, 92vw); margin: 0 auto; }
+
+    header {
+      border-bottom: 1px solid hsl(var(--border));
+      background: hsl(var(--surface));
+      position: sticky; top: 0; z-index: 10;
+    }
+    .masthead { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding: 16px 0; }
+    .id { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; }
+    .avatar { width: 64px; height: 64px; border-radius: 50%; background: hsl(var(--border)); overflow: hidden; }
+    .name { font-size: clamp(20px, 3vw, 28px); font-weight: 800; margin: 0; color: hsl(var(--accent)); }
+    .meta { color: hsl(var(--muted)); margin-top: 2px; font-size: 14px; }
+
+    nav.links { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    nav.links a { padding: 8px 10px; border-radius: 6px; color: hsl(var(--text)); text-decoration: none; border: 1px solid hsl(var(--border)); font-weight: 600; font-size: 14px; }
+    nav.links a:hover { background: hsl(var(--accent) / 0.1); color: hsl(var(--accent)); }
+    .theme { border: 1px solid hsl(var(--border)); border-radius: 6px; padding: 6px 8px; background: transparent; cursor: pointer; }
+
+    main section { padding: 28px 0; }
+    h2 { font-size: clamp(18px, 2.4vw, 22px); margin: 0 0 10px; color: hsl(var(--accent)); }
+    p { margin: 10px 0; }
+    a { color: hsl(var(--link)); }
+    .lead { font-size: 16px; color: hsl(var(--muted)); max-width: 70ch; }
+    .hr { height: 1px; background: hsl(var(--border)); margin: 24px 0; }
+
+    .cols { display: grid; grid-template-columns: 2.1fr 1fr; gap: 28px; }
+    @media (max-width: 920px) { .cols { grid-template-columns: 1fr; } }
+
+    .block { border: 1px solid hsl(var(--border)); border-radius: 10px; padding: 16px; background: hsl(var(--surface)); }
+    .block + .block { margin-top: 12px; }
+
+    .list { list-style: none; padding: 0; margin: 0; }
+    .list li { padding: 10px 0; border-bottom: 1px dashed hsl(var(--border)); }
+    .list li:last-child { border-bottom: none; }
+
+    .pub { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; }
+    .pub .title { font-weight: 700; }
+    .pub .authors, .pub .venue { color: hsl(var(--muted)); font-size: 14px; }
+    .pub .actions { display: flex; gap: 8px; }
+    .btn-link { border: 1px solid hsl(var(--border)); padding: 4px 8px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; color: hsl(var(--text)); }
+    .btn-link:hover { background: hsl(var(--accent) / 0.1); color: hsl(var(--accent)); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid hsl(var(--border)); padding: 8px 6px; text-align: left; }
+
+    footer { border-top: 1px solid hsl(var(--border)); color: hsl(var(--muted)); padding: 18px 0 36px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container masthead">
+      <div class="id">
+        <img class="avatar" src="my_photo.png" alt="Profile picture"/>
+        <div>
+          <h1 class="name">Yu-Zhu Sun</h1>
+          <div class="meta">PhD Candidate · University of Leicester · Radio Astronomy</div>
+        </div>
+      </div>
+      <nav class="links">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#talks">Talks</a>
+        <a href="#contact">Contact</a>
+        <button id="themeBtn" class="theme" title="Toggle theme">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="research">
+      <div class="cols">
+        <div>
+          <h2>Research</h2>
+          <p class="lead"> My research focuses on <strong>HI studies in nearby galaxies</strong>, <strong>FRB host galaxy identification</strong>, and <strong>low-frequency radio transients</strong>. I primarily work with radio data from the VLA, FAST, and LOFAR, and have extensive experience in both calibration and analysis of interferometric observations. Through these studies, I aim to improve our understanding of the gas content, variability, and transient phenomena revealed at radio wavelengths.</p>
+          <div class="block">
+            <h3 style="margin:0 0 6px">Current Topics</h3>
+            <ul class="list">
+             <li><strong>AVID project:</strong> investigating HI gas in nearby interacting and merging galaxies to study gas dynamics and galaxy evolution.</li>
+             <li><strong>FRB host galaxies:</strong> identifying and characterising host galaxies of fast radio bursts through cross-matching and statistical association methods.</li>
+             <li><strong>Radio transients:</strong> searching for and analysing low-frequency radio transients using LOFAR and related survey data.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h3 style="margin:0 0 6px">Keywords</h3>
+            <p style="margin:0">HI gas · FRB host galaxies · Radio transients · Radio data calibration · Imaging</p>
+          </div>
+        </div>
+        <aside>
+          <div class="block">
+            <h3 style="margin:0 0 6px">Quick Links</h3>
+            <ul class="list">
+              <li>📄 <a href="CV_phd.pdf" target="_blank">CV (PDF)</a></li>
+              <li>🆔 <a href="https://orcid.org/0009-0000-5990-3712">ORCID: 0009-0000-5990-3712</a></li>
+              <li>📚 <a href="#">Google Scholar</a></li>
+              <li>🗃️ <a href="https://ui.adsabs.harvard.edu/public-libraries/aGB1WGhRQnmKPh3q2x2b_w">ADS Library</a></li>
+              <li>💾 <a href="#">GitHub</a></li>
+            </ul>
+          </div>
+          <div class="block">
+            <h3 style="margin:0 0 6px">Contact Info</h3>
+            <p style="margin:0">Email: <a href="mailto:ys400@le.ac.uk">ys400@le.ac.uk</a><br/>Office: Charles Wilson Building, 5th Floor (City Side)</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <p class="lead"></p>
+
+      <div class="block">
+        <ol class="list">
+          <li>
+            <article class="pub">
+              <div>
+                <div class="title">Unveiling the nature and fate of the almost-dark cloud AGC 226178 through HI mapping</div>
+                <div class="authors"><strong>Yu-Zhu Sun</strong>, Hong-Xin Zhang, Elias Brinks, Rory Smith, et al.</div>
+                <div class="venue">A&A · arXiv:2506.23232 · 2025</div>
+              </div>
+              <div class="actions">
+                <a class="btn-link" href="https://ui.adsabs.harvard.edu/abs/2025arXiv250623232S/abstract">ADS</a>
+                <a class="btn-link" href="https://arxiv.org/abs/2506.23232">arXiv</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="pub">
+              <div>
+                <div class="title">AVID: Formation and evolution of a coalesced major merger of late-type dwarf galaxies (VCC 479) on the outskirts of the Virgo cluster</div>
+                <div class="authors">Weibin Sun, Hong-Xin Zhang, Rory Smith, Elias Brinks, et al.
+                 <details>
+                  <summary>Show all authors</summary>
+                  Weibin Sun, Hong-Xin Zhang, Rory Smith, Elias Brinks, Patrick Côté, Se-Heon Oh, Zesen Lin, Alessandro Boselli, Laura Ferrarese, Fujia Li, <strong>Yu-Zhu Sun</strong>, Lijun Chen, Lanyue Zhang, Minsu Kim, Jaebeom Kim, Tie Li, Bojun Tao, Matt Taylor, Pierre-Alain Duc, Ruben Sánchez-Janssén, Yinghe Zhao, Sanjaya Paudel, Eric W. Peng, Kaixiang Wang, Stephen Gwyn, Matteo Fossati, Jean-Charles Cuillandre
+                   
+                 </details>
+                </div>
+                <div class="venue">A&A · arXiv:2506.15268· 2025</div>
+              </div>
+              <div class="actions">
+                <a class="btn-link" href="https://ui.adsabs.harvard.edu/abs/2025A%26A...700A.113S/abstract">ADS</a>
+                <a class="btn-link" href="https://arxiv.org/abs/2506.15268">arXiv</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="pub">
+              <div>
+                <div class="title">Low-frequency-selected Fast Radio Burst Host Galaxies Candidates</div>
+                <div class="authors"><strong>Y.-Z. Sun</strong> et al.</div>
+                <div class="venue">MNRAS · in prep. · 2025</div>
+              </div>
+
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section id="education">
+     <h2>Education</h2>
+      <div class="block">
+        <ul class="list">
+         <li><strong>PhD in Astrophysics</strong>, University of Leicester, UK — 2024–present</li>
+         <li><strong>MSc in Astrophysics</strong>, University of Science and Technology of China, China — 2021–2024</li>
+         <li><strong>BEng in Engineering Mechanics</strong>, Sichuan University, China — 2017–2021</li>
+        </ul>
+      </div>
+   </section>
+
+    <div class="hr"></div>
+
+    <section id="talks">
+      <h2>Talks & Posters</h2>
+      <div class="block">
+        <ul class="list">
+          <li>AUSTRALIA-CHINA CONSORTIUM FOR ASTROPHYSICAL RESEARCH 10, China. 15 May 2024 — <em>Unveiling the Hidden: Exploring Neutral Gas in the 'Almost Dark' Object AGC 226178</em> (Talk)</li>
+          <li>European Astronomical Society Annual Meeting, Ireland, 23 Jun 2025 — <em>Low-Frequency-Selected Fast Radio Burst Host Galaxies Candidates.</em> (e-Poster)</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="lead">For collaboration, talk invitations, or data exchange, please get in touch via email.</p>
+      <div class="block">
+        <ul class="list">
+          <li>Email: <a href="mailto:ys400@le.ac.uk">ys400@le.ac.uk</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Personal Website · Last updated automatically.
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) {
+      root.classList.add('theme-dark');
+    }
+    themeBtn?.addEventListener('click', () => {
+      root.classList.toggle('theme-dark');
+      localStorage.setItem('theme', root.classList.contains('theme-dark') ? 'dark' : 'light');
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
